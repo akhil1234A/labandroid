@@ -1,0 +1,42 @@
+package com.example.radioan;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.RadioButton;
+import android.widget.Toast;
+public class MainActivity extends Activity {
+private RadioGroup radsg;
+private RadioButton radsb;
+private Button btn;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ addListenerOnButton();
+ }
+
+ public void addListenerOnButton()
+ {
+
+ radsg=(RadioGroup)findViewById(R.id.radioGroup1);
+ btn=(Button)findViewById(R.id.button1);
+ btn.setOnClickListener(new OnClickListener()
+ {
+ public void onClick(View v)
+ {
+ int sid=radsg.getCheckedRadioButtonId();
+ radsb=(RadioButton)findViewById(sid);
+ Toast.makeText(MainActivity.this, radsb.getText(),
+Toast.LENGTH_LONG).show();
+
+ }
+
+
+ });
+ }
+
+}

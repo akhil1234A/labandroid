@@ -1,0 +1,32 @@
+package com.example.checkboxan;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+public class MainActivity extends Activity implements OnClickListener {
+CheckBox cb1,cb2,cb3,cb4;
+Button btn;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ cb1=(CheckBox)findViewById(R.id.checkBox1);
+ cb2=(CheckBox)findViewById(R.id.checkBox2);
+ cb3=(CheckBox)findViewById(R.id.checkBox3);
+ btn=(Button)findViewById(R.id.button1);
+ btn.setOnClickListener(this);
+ }
+@Override
+public void onClick(View arg0) {
+// TODO Auto-generated method stub
+StringBuffer strb=new StringBuffer();
+strb.append("Pizza").append(cb1.isChecked());
+strb.append("Burger").append(cb2.isChecked());
+strb.append("Coffee").append(cb3.isChecked());
+Toast.makeText(MainActivity.this,strb.toString(),Toast.LENGTH_LONG).show();
+}
+
+}
